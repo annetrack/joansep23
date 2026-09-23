@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -628,27 +628,27 @@
     }
 
     /* ==========================================================================
-       SAMPLE WORKS MARQUEE CAROUSEL (RESTORED)
+       SAMPLE WORKS MARQUEE CAROUSEL
        ========================================================================== */
-    .marquee-section {
-      padding: 80px 0;
+    .marquee-container {
+      width: 100%;
       overflow: hidden;
-      background: var(--bg-dark);
       position: relative;
+      padding: 20px 0;
     }
 
     .marquee-track {
       display: flex;
       gap: 24px;
       width: max-content;
-      animation: marqueeScroll 35s linear infinite;
+      animation: marquee 30s linear infinite;
     }
 
-    .marquee-track:hover {
+    .marquee-container:hover .marquee-track {
       animation-play-state: paused;
     }
 
-    @keyframes marqueeScroll {
+    @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
@@ -671,16 +671,17 @@
 
     .work-thumb {
       height: 180px;
-      background: linear-gradient(135deg, #1e2638, #111520);
+      background: linear-gradient(135deg, #1e2638, #0d1017);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .play-btn {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--accent-gold);
       color: #000;
@@ -688,7 +689,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
-      box-shadow: 0 0 20px rgba(226, 184, 87, 0.4);
+      box-shadow: 0 0 24px rgba(226, 184, 87, 0.4);
       padding-left: 3px;
     }
 
@@ -712,7 +713,7 @@
     }
 
     /* ==========================================================================
-       SYSTEMS & EXECUTION (RESTORED)
+       SYSTEMS & EXECUTION
        ========================================================================== */
     .systems-grid {
       display: grid;
@@ -826,7 +827,7 @@
     }
 
     /* ==========================================================================
-       WHY VOICEWORK DIFFERENCE (RESTORED)
+       WHY VOICEWORK DIFFERENCE
        ========================================================================== */
     .diff-grid {
       display: grid;
@@ -857,7 +858,7 @@
     }
 
     /* ==========================================================================
-       TESTIMONIALS (ALL 5 RESTORED)
+       TESTIMONIALS
        ========================================================================== */
     .testimonial-grid {
       display: grid;
@@ -901,7 +902,7 @@
     }
 
     /* ==========================================================================
-       ABOUT JOAN (HEADSHOT UPDATED)
+       ABOUT JOAN WITH IMAGE FALLBACK
        ========================================================================== */
     .about-box {
       background: var(--bg-surface);
@@ -921,6 +922,10 @@
       overflow: hidden;
       border: 1px solid var(--border-accent);
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, var(--bg-surface-elevated), var(--accent-gold-glow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .about-avatar-img {
@@ -929,6 +934,13 @@
       object-fit: cover;
       object-position: center top;
       display: block;
+    }
+
+    .about-avatar-fallback {
+      font-size: 3.5rem;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      color: var(--accent-gold);
     }
 
     .about-tags {
@@ -1406,9 +1418,9 @@
     </div>
   </section>
 
-  <!-- SAMPLE WORKS MARQUEE CAROUSEL (RESTORED) -->
-  <section id="proof" class="marquee-section">
-    <div class="container" style="margin-bottom: 32px;">
+  <!-- SAMPLE WORKS MARQUEE CAROUSEL -->
+  <section id="proof">
+    <div class="container" style="margin-bottom: 24px;">
       <div class="section-header" style="margin-bottom: 0;">
         <div class="badge">Client Success</div>
         <h2>The Work Speaks <span class="text-gradient">For Itself.</span></h2>
@@ -1416,63 +1428,72 @@
       </div>
     </div>
 
-    <!-- Scrolling Marquee Cards -->
-    <div class="marquee-track">
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Executive Media</div>
-          <div class="work-title">Multi-Cam Video Podcast Edit</div>
+    <!-- Infinite Scroll Container -->
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Executive Media</div>
+            <div class="work-title">Multi-Cam Video Podcast Edit</div>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Short Repurposing</div>
-          <div class="work-title">Viral Short-Form Reel Clip</div>
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Short Repurposing</div>
+            <div class="work-title">Viral Short-Form Reel Clip</div>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Thought Leaders</div>
-          <div class="work-title">SEO Show Notes & Audio Polish</div>
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Thought Leaders</div>
+            <div class="work-title">SEO Show Notes & Audio Polish</div>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Author Press</div>
-          <div class="work-title">AI Audiobook to Podcast Series</div>
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Author Press</div>
+            <div class="work-title">AI Audiobook to Podcast Series</div>
+          </div>
         </div>
-      </div>
 
-      <!-- Duplicated for Infinite Loop -->
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Executive Media</div>
-          <div class="work-title">Multi-Cam Video Podcast Edit</div>
+        <!-- Duplicated set for seamless loop -->
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Executive Media</div>
+            <div class="work-title">Multi-Cam Video Podcast Edit</div>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Short Repurposing</div>
-          <div class="work-title">Viral Short-Form Reel Clip</div>
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Short Repurposing</div>
+            <div class="work-title">Viral Short-Form Reel Clip</div>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb"><div class="play-btn">▶</div></div>
-        <div class="work-info">
-          <div class="work-tag">Thought Leaders</div>
-          <div class="work-title">SEO Show Notes & Audio Polish</div>
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Thought Leaders</div>
+            <div class="work-title">SEO Show Notes & Audio Polish</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb"><div class="play-btn">▶</div></div>
+          <div class="work-info">
+            <div class="work-tag">Author Press</div>
+            <div class="work-title">AI Audiobook to Podcast Series</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SYSTEMS & EXECUTION (RESTORED) -->
+  <!-- SYSTEMS & EXECUTION -->
   <section style="background: rgba(17, 21, 32, 0.4);">
     <div class="container">
       <div class="section-header">
@@ -1517,7 +1538,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS (ALL 5 RESTORED) -->
+  <!-- TESTIMONIALS -->
   <section>
     <div class="container">
       <div class="section-header">
@@ -1589,7 +1610,8 @@
     <div class="container">
       <div class="about-box">
         <div class="about-avatar-wrapper">
-          <img src="joan.jpg" alt="Joan Peconcillo - Voicework Founder" class="about-avatar-img">
+          <img src="joan.jpg" alt="Joan Peconcillo - Voicework Founder" class="about-avatar-img" onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='block';">
+          <div id="avatar-fallback" class="about-avatar-fallback" style="display:none;">JP</div>
         </div>
         <div>
           <div class="badge">About Joan</div>
@@ -1652,7 +1674,7 @@
     </div>
   </section>
 
-  <!-- WHY VOICEWORK DIFFERENCE (RESTORED) -->
+  <!-- WHY VOICEWORK DIFFERENCE -->
   <section id="why" style="background: rgba(17, 21, 32, 0.4);">
     <div class="container">
       <div class="section-header">
@@ -1922,9 +1944,9 @@
     </div>
   </footer>
 
-  <!-- INTERACTIVE SCRIPTS -->
+  <!-- JAVASCRIPT -->
   <script>
-    // 1. Calculator Interactive Logic
+    // 1. Interactive Calculator Logic
     const epRange = document.getElementById('episodes-range');
     const hrRange = document.getElementById('hours-range');
     const epVal = document.getElementById('episodes-val');
@@ -1934,44 +1956,50 @@
     const reclaimedTotal = document.getElementById('reclaimed-total');
 
     function updateCalculator() {
-      const episodes = parseInt(epRange.value);
-      const hours = parseInt(hrRange.value);
+      if (!epRange || !hrRange) return;
+      const episodes = parseInt(epRange.value, 10);
+      const hours = parseInt(hrRange.value, 10);
       
       const totalDIY = episodes * hours;
-      const clientTime = episodes * 1; // 1 hour client review time per episode
+      const clientTime = episodes * 1; // 1 hour review time per episode
       const reclaimed = totalDIY - clientTime;
 
-      epVal.textContent = `${episodes} ${episodes === 1 ? 'episode' : 'episodes'}`;
-      hrVal.textContent = `${hours} hours`;
-      diyTotal.textContent = `${totalDIY} hrs / mo`;
-      clientTotal.textContent = `${clientTime} hrs / mo`;
-      reclaimedTotal.textContent = `${reclaimed} hrs/mo`;
+      epVal.textContent = episodes + (episodes === 1 ? ' episode' : ' episodes');
+      hrVal.textContent = hours + ' hours';
+      diyTotal.textContent = totalDIY + ' hrs / mo';
+      clientTotal.textContent = clientTime + ' hrs / mo';
+      reclaimedTotal.textContent = reclaimed + ' hrs/mo';
     }
 
-    epRange.addEventListener('input', updateCalculator);
-    hrRange.addEventListener('input', updateCalculator);
+    if (epRange && hrRange) {
+      epRange.addEventListener('input', updateCalculator);
+      hrRange.addEventListener('input', updateCalculator);
+      // Run once on load to sync initial values
+      updateCalculator();
+    }
 
     // 2. FAQ Tab Switching
     const tabBtns = document.querySelectorAll('.faq-tab-btn');
     const tabContents = document.querySelectorAll('.faq-tab-content');
 
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetTab = btn.dataset.tab;
+    tabBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetTab = btn.getAttribute('data-tab');
         
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
+        tabBtns.forEach(function(b) { b.classList.remove('active'); });
+        tabContents.forEach(function(c) { c.classList.remove('active'); });
 
         btn.classList.add('active');
-        document.getElementById(`faq-tab-${targetTab}`).classList.add('active');
+        var targetEl = document.getElementById('faq-tab-' + targetTab);
+        if (targetEl) targetEl.classList.add('active');
       });
     });
 
-    // 3. Accordion Toggle
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.parentElement;
-        item.classList.toggle('active');
+    // 3. Accordion Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var item = button.parentElement;
+        if (item) item.classList.toggle('active');
       });
     });
   </script>
